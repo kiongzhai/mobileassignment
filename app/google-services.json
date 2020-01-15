@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "447686006293",
+    "firebase_url": "https://userdatabase-b520e.firebaseio.com",
+    "project_id": "userdatabase-b520e",
+    "storage_bucket": "userdatabase-b520e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:447686006293:android:70c532dc79033adfce201c",
+        "android_client_info": {
+          "package_name": "com.example.ice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "447686006293-ha29ug0frn62o3vef4v0150mf8lbvfba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCuih_cAnvNLOA6XZLQwZ_1Pz4KDSvBS4g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "447686006293-ha29ug0frn62o3vef4v0150mf8lbvfba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
