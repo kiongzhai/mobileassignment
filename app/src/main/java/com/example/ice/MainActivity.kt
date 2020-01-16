@@ -54,6 +54,18 @@ class MainActivity : AppCompatActivity() {
         val email = editTextEmailLogin.text.toString()
         val password = editTextPasswordLogin.text.toString()
 
+        if(editTextEmailLogin.text.toString().isEmpty()){
+            editTextEmailLogin.error = "Please enter an email"
+            editTextEmailLogin.requestFocus()
+            return
+        }
+        if(editTextPasswordLogin.text.toString().isEmpty()){
+            editTextPasswordLogin.error = "Please enter your password"
+            editTextPasswordLogin.requestFocus()
+            return
+        }
+
+
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
                 if (it.isSuccessful) {

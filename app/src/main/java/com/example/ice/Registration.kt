@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_registration.*
 
 class Registration : AppCompatActivity() {
@@ -30,10 +31,15 @@ class Registration : AppCompatActivity() {
         val email = editTextEmailReg.text.toString()
         val password = editTextPasswordReg.text.toString()
 
-        if(email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(this, "Please enter an Email/Password", Toast.LENGTH_SHORT).show()
+        if(editTextPasswordReg.text.toString().isEmpty()){
+            editTextPasswordReg.error = "Please enter your password"
+            editTextPasswordReg.requestFocus()
             return
-
+        }
+        if(editTextEmailReg.text.toString().isEmpty()){
+            editTextEmailReg.error = "Please enter an email"
+            editTextEmailReg.requestFocus()
+            return
         }
 
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
