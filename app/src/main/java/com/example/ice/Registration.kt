@@ -3,6 +3,7 @@ package com.example.ice
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -18,11 +19,13 @@ class Registration : AppCompatActivity() {
             performRegister()
 
         }
+        textViewHaveAccount.setOnClickListener(){
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun performRegister(){
-        val intent = Intent(this, MainActivity::class.java)
-        startActivity(intent)
 
         val email = editTextEmailReg.text.toString()
         val password = editTextPasswordReg.text.toString()
@@ -36,13 +39,20 @@ class Registration : AppCompatActivity() {
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener{
                 if (!it.isSuccessful)
-                    return@addOnCompleteListener
+
+
+                return@addOnCompleteListener
+                //else if successful
+                Toast.makeText(this, "User Created", Toast.LENGTH_SHORT).show()
+                saveUserToFirebaseDatabase()
+
 
             }
             .addOnFailureListener{
+                Log.d("Registration", "Failed to create user : ${it.message}")
                 Toast.makeText(this, "Failed to create user", Toast.LENGTH_SHORT).show()
 
-                saveUserToFirebaseDatabase()
+
             }
     }
     private fun saveUserToFirebaseDatabase() {

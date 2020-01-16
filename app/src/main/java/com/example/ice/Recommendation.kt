@@ -26,6 +26,8 @@ class Recommendation : AppCompatActivity() {
         }
 
 
+        }
+
+
 
     }
-}

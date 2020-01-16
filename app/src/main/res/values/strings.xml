@@ -17,4 +17,5 @@
     <string name="newpassword">New Password</string>
     <string name="savechanges">Save Changes</string>
     <string name="signUp"><u>Sign Up?</u></string>
+    <string name="alreadyhaveacc">Already have an account?</string>
 </resources>
