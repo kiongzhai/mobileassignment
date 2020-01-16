@@ -46,7 +46,8 @@ class Registration : AppCompatActivity() {
                 Toast.makeText(this, "User Created", Toast.LENGTH_SHORT).show()
                 saveUserToFirebaseDatabase()
 
-
+                startActivity(Intent(this, MainActivity::class.java))
+                finish()
             }
             .addOnFailureListener{
                 Log.d("Registration", "Failed to create user : ${it.message}")

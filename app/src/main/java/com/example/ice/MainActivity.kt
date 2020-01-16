@@ -43,6 +43,8 @@ class MainActivity : AppCompatActivity() {
         if(currentUser != null){
             val intent = Intent(this, Recommendation::class.java)
             startActivity(intent)
+
+
         } else {
             Toast.makeText(this, "Login Failed!", Toast.LENGTH_SHORT).show()
         }
@@ -52,12 +54,11 @@ class MainActivity : AppCompatActivity() {
         val email = editTextEmailLogin.text.toString()
         val password = editTextPasswordLogin.text.toString()
 
-        FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
+        auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener {
-                if (!it.isSuccessful) {
+                if (it.isSuccessful) {
 
                     Toast.makeText(this, "Logging in!", Toast.LENGTH_SHORT).show()
-
                     val user = auth.currentUser
                     updateUI(user)
                 } else {
@@ -71,6 +72,8 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Invalid Email/Password!", Toast.LENGTH_SHORT).show()
             }
     }
+
+
 
 }
 
